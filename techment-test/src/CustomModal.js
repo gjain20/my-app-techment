@@ -8,6 +8,9 @@ function CustomModal() {
   const handleClick = () => {
     setIsOpen(true)
   }
+  const closeModal = () => {
+    setIsOpen(false)
+  }
   return (
     <>
       <button onClick={handleClick}>Open Modal</button>
@@ -16,7 +19,7 @@ function CustomModal() {
         <Modal
           className="custom-modal"
           show={isOpen}
-          onHide={() => ""}
+          onHide={closeModal}
           size={'xl'}
           aria-labelledby="contained-modal-title-vcenter"
           backdrop="static"
