@@ -2,23 +2,25 @@ import React, {useState} from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import Body from './Body'
 import StepBar from './StepBar'
+import {CustomModalContext} from './context/CustomModalContext'
 
 function CustomModal() {
-  const [isOpen, setIsOpen] = useState(false)
+  const modalBar = React.useContext(CustomModalContext)
+
   const handleClick = () => {
-    setIsOpen(true)
+    modalBar.setBarState({...modalBar, isOpen:true})
   }
   const closeModal = () => {
-    setIsOpen(false)
+    modalBar.setBarState({...modalBar, isOpen:false})
   }
   return (
     <>
       <button onClick={handleClick}>Open Modal</button>
 
-      {isOpen && (
+      {modalBar.isOpen && (
         <Modal
           className="custom-modal"
-          show={isOpen}
+          show={modalBar.isOpen}
           onHide={closeModal}
           size={'xl'}
           aria-labelledby="contained-modal-title-vcenter"

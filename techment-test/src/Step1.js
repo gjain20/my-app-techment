@@ -6,17 +6,31 @@ import {Step1Context} from './context/Step1Context'
 
 function Step1() {
   const modalBar = React.useContext(CustomModalContext)
+  const handleClick = () => {
+    modalBar.setBarState({...modalBar, activeCreateForm: 1})
+  }
   const {
     name,
     title,
+    location,
+    description,
+    musthave,
+    nicetohave,
+    email,
+    referrals,
+    money,
     setName,
-    setTitle
+    setTitle,
+    setLocation,
+    setMustHave,
+    setDescription,
+    setNiceToHave,
+    setEmail,
+    setReferrals,
+    setMoney
   } = React.useContext(Step1Context)
 
-  console.log("==1==", name, title)
-  const handleClick = () => {
-    modalBar.setBarState({...modalBar.barState, activeCreateForm: 1})
-  }
+  console.log("==1==", referrals)
 return(
  
   <Form>
@@ -61,15 +75,100 @@ return(
       <Col xs={6}>
         <Form.Group>
           <Form.Label>Location</Form.Label>
-          <Form.Control type="text" />
+          <Form.Control type="text" 
+            onChange={e => {
+              setLocation(e.target.value)
+            }}
+            value={location}
+            defaultValue={location}
+          />
         </Form.Group>
       </Col>
       <Col xs={12}>
         <Form.Group>
           <Form.Label>Job Description</Form.Label>
-          <Form.Control as="textarea" rows={4}  />
+          <Form.Control as="textarea" rows={3}
+            className="form-control"
+            type="textarea"
+            onChange={e => {
+              setDescription(e.target.value)
+            }}
+            rows={4}
+            value={description}
+            defaultValue={description}
+          />
         </Form.Group>
       </Col>
+      <Col xs={12}>
+        <Form.Group>
+          <Form.Label>Must have skills</Form.Label>
+          <Form.Control as="textarea" rows={3}
+            className="form-control"
+            type="textarea"
+            onChange={e => {
+              setMustHave(e.target.value)
+            }}
+            rows={4}
+            value={musthave}
+            defaultValue={musthave}
+          />
+        </Form.Group>
+      </Col>
+      <Col xs={12}>
+        <Form.Group>
+          <Form.Label>Nice to have skills</Form.Label>
+          <Form.Control as="textarea" rows={3} 
+            className="form-control"
+            onChange={e => {
+              setNiceToHave(e.target.value)
+            }}
+            rows={4}
+            value={nicetohave}
+            defaultValue={nicetohave}
+          />
+
+        </Form.Group>
+      </Col>
+      <Col xs={12}>
+        <Form.Group>
+          <Form.Label>Which Emails should the notifications for this job to sent to?</Form.Label>
+          <Form.Control type="email" 
+            onChange={e => {
+              setEmail(e.target.value)
+            }}
+            rows={4}
+            value={email}
+            defaultValue={email}
+          />
+
+        </Form.Group>
+      </Col>
+      <Col xs={12}>
+        <Form.Group>
+          <Form.Check 
+            type="checkbox" 
+            label="This Job accepting referrals" 
+            onChange={e => {
+              setReferrals(e.target.checked)
+            }}
+            checked={referrals}
+          />
+          <Form.Label>If yes, what is the commision for the sucessful hire of a referred candidate? 
+            <input type="text" 
+              className="form-control money"
+              placeholder="$"
+              onChange={e => {
+                setMoney(e.target.value)
+              }}  
+              value={money}
+              defaultValue={money}
+  
+            />        
+            </Form.Label>
+
+        </Form.Group>
+      </Col>
+      
     </Row>
 
   <Button variant="primary" type="button" onClick={handleClick}>

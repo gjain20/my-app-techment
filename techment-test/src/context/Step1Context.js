@@ -5,15 +5,36 @@ function Step1ContextProvider(props) {
   const [id, setId] = useState()
   const [name, setName] = useState()  
   const [title, setTitle] = useState()
-  
+  const [location, setLocation] = useState()
+  const [description, setDescription] = useState()
+  const [musthave, setMustHave] = useState()
+  const [nicetohave, setNiceToHave] = useState()
+  const [email, setEmail] = useState()
+  const [referrals,setReferrals] = useState()
+  const [money, setMoney] = useState()
+
   const value = {
     id,
     name,
     title,
+    location,
+    description,
+    musthave,
+    nicetohave,
+    email,
+    referrals,
+    money,
 
     setId,
     setName,
-    setTitle
+    setTitle,
+    setLocation,
+    setDescription,
+    setMustHave,
+    setNiceToHave,
+    setEmail,
+    setReferrals,
+    setMoney
   }
 
   return (

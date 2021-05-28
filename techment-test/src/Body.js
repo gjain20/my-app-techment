@@ -9,53 +9,8 @@ import {CustomModalContext} from './context/CustomModalContext'
 
 
 function Body() {
-  const totalCreateForms = 4
   const modalBar = React.useContext(CustomModalContext)
-  console.log("==1", modalBar)
-  const formState = modalBar.formState
   const activeCreateForm = modalBar.activeCreateForm
-  const prevButton = () => (
-    <span
-      style={activeCreateForm !== 0 ? {display: 'block'} : {display: 'none'}}
-    >
-      <button
-        type="button"
-        id={
-          activeCreateForm === 1
-            ? 'btn-prev-0'
-            : activeCreateForm === 2
-            ? 'btn-prev-1'
-            : activeCreateForm === 3
-            ? 'btn-prev-2'
-            : 'btn-prev-0'
-        }
-        className="btn btn-circle btn-xl"
-      >
-      </button>
-    </span>
-  )
-
-  const nextButton = () => (
-    <span
-      style={activeCreateForm + 1 < totalCreateForms ? {display: 'block'} : {display: 'none'}}
-    >
-      <button
-        type="button"
-        id={
-          activeCreateForm === 0
-            ? 'btn-next-1'
-            : activeCreateForm === 1
-            ? 'btn-next-2'
-            : activeCreateForm === 2
-            ? 'btn-next-3'
-            : 'btn-next-1'
-        }
-        className="btn btn-circle btn-xl"
-        disabled={!formState}
-      >
-      </button>
-    </span>
-  )
 
   const currentModalScreen = () => {
     switch (activeCreateForm) {

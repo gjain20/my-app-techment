@@ -6,6 +6,7 @@ function CustomModalContextProvider(props) {
   const [barState, setBarState] = useState({
     activeCreateForm: 0,
     formState: true,
+    isOpen: false
   })
 
   const handleIncreaseDecreaseStep = useCallback(

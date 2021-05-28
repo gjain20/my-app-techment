@@ -49,7 +49,7 @@
   background: linear-gradient(94.67deg, #5F78FF -1.19%, #7185F2 53.94%, #8D91FF 102.59%) !important;
   border-radius: 50px !important;
   float: right;
-  width: 100px;
+  margin-inline-end: 100px;
 }
 .custom-modal .btn-secondary {
   float: right;
@@ -59,7 +59,47 @@
   border-radius: 50px;
   color: #657CFB;
   margin-right: 15px;
-  width: 100px;
+  min-width: 100px;
+}
+.btn-container {
+  .btn-primary {
+    float: none;
+    margin-right: 10px;
+  }
+}
+.card {
+  margin-bottom: 20px;
+  .card-title {
+    color: #6874B6;
+    font-size: 12px;
+  }
+  .subject-input {
+    display: inline-block;
+    width: 90%;
+    margin-left: 20px;
+    border-radius: 2px !important;
+    background: white !important;
+  }
+  .card-header {
+    height: 35px;
+    background: #6979D0;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 14px;
+  }
+  .card-header-tabs {
+    margin-left: 0;
+  }
+  .nav-tabs .nav-link.active {
+    border: none;
+    border-radius: 10px 10px 0px 0px;
+    color: #6874B6;
+    font-size: 12px;
+  }
+  .card-body {
+    background: #EBEDFA;
+    border-radius: 0px 0px 5px 5px;
+  }
 }
 label {
   font-family: Avenir;
@@ -76,7 +116,7 @@ label {
   border: none !important;
   &:focus {
     background: #FFFFFF !important;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0 , 0.10);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0 , 0.10) !important;
     border-radius: 2px !important;
   }
 }
@@ -154,4 +194,9 @@ label {
       line-height: 42px;
     }
   }
+}
+.money {
+  display: inline-block !important;
+    width: 10% !important;
+    margin-left: 10px;
 }
